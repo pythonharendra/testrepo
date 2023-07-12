@@ -9,3 +9,28 @@ six==1.16.0
 sqlparse==0.4.4
 textmagic==2.0.3
 typing_extensions==4.7.1
+
+
+
+
+
+
+
+
+# [Unit]
+# Description=gunicorn daemon
+# Requires=gunicorn.socket
+# After=network.target
+
+# [Service]
+# User=sammy
+# Group=www-data
+# WorkingDirectory=//home/ubuntu/project/pixlo_project
+# ExecStart=/home/ubuntu/project/env/bin/gunicorn \
+#           --access-logfile - \
+#           --workers 3 \
+#           --bind unix:/run/gunicorn.sock \
+#           pixlo_project.wsgi:application
+
+# [Install]
+# WantedBy=multi-user.target

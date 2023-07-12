@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,null=True,blank=True)
     mobile_number = models.CharField(max_length=20,null=True,blank=True)
+    profile_image = models.FileField(upload_to='media/profile_images',null=True,blank=True)
 
 
 class Account_Otp(models.Model):
