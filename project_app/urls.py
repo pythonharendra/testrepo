@@ -12,6 +12,7 @@ urlpatterns = [
     path('show_all_images/',views.show_all_images),
     path('user_image_recongnization/',views.user_image_recongnization),
     path('get_user_history/',views.get_user_history),
+    path('get_user_profile/',views.get_user_profile),
    
     
 ]

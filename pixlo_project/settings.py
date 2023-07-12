@@ -45,6 +45,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -120,13 +121,13 @@ import os
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+#STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -137,6 +138,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
+# AWS_ACCESS_KEY_ID = 'AKIA55NS46UBTKIKPMUH'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'singh1234buck'
+# AWS_S3_SIGNATURE_NAME = 's3v4',
+# AWS_S3_REGION_NAME = 'ap-south-1'
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL =  None
+# AWS_S3_VERITY = True
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+
+# STATICFILES_LOCATION = 'static'
+# MEDIAFILES_LOCATION = 'media'
+
+#AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % os.environ['BUCKET_NAME']
+
 AWS_ACCESS_KEY_ID = 'AKIA55NS46UBTKIKPMUH'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'singh1234buck'
@@ -146,6 +164,16 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL =  None
 AWS_S3_VERITY = True
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
+#MEDIA_ROOT = os.path.join (BASE_DIR, 'static/images/')
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+STATIC_ROOT = os.path.join (BASE_DIR, 'static')
+
+# STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 
 

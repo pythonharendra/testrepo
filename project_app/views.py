@@ -189,4 +189,29 @@ def get_user_history(request):
     except UserHistory.DoesNotExist:
         return Response({"data does Not exist"},status=status.HTTP_204_NO_CONTENT)
     
+
+
+
+
+@csrf_exempt
+@api_view(['GET'])
+def get_user_profile(request):
+    user_id = request.query_params['user_id']
+
+    try:
+        user_profile = UserProfile.objects.filter(user__id = user_id).first()
+
+        data = {}
+
+        data['username'] = user_profile.user.first_name+user_profile.user.last_name
+        data['mobile_number'] = user_profile.mobile_number
+        data['profile_image'] =  str(user_profile.profile_image.url)
+
+        return Response({'data':data},status=status.HTTP_200_OK)
+
+    except UserProfile.DoesNotExist:
+        return Response({"message":'Please provide valid user id'},status=status.HTTP_400_BAD_REQUEST)
     
+    
+
+    # uri = "s3://singh1234buck/media/profile_images/"
