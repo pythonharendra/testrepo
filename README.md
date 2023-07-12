@@ -12,4 +12,3 @@
 
   # imp  here i am sharing postman api collection link
 
-   https://api.postman.com/collections/21847710-6bf2adc9-f500-4a15-86e2-b24ab5ff9b88?access_key=PMAT-01H4JQGJWVAZ909WTK26PJTNCE
